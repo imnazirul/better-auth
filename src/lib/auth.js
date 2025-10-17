@@ -11,6 +11,7 @@ export const auth = betterAuth({
     defaultCookieAttributes: {
       sameSite: "none",
       secure: true,
+      httpOnly: true,
     },
   },
   emailAndPassword: {
@@ -31,7 +32,12 @@ export const auth = betterAuth({
       clientSecret: process.env.APPLE_CLIENT_SECRET,
     },
   },
-  trustedOrigins: ["http://localhost:3000", process.env.FRONTEND_URL],
+  trustedOrigins: [
+    "http://localhost:3000",
+    "http://localhost:5000",
+    "https://better-auth-nazirul.vercel.app",
+    process.env.FRONTEND_URL,
+  ],
   plugins: [
     emailOTP({
       async sendVerificationOTP({ email, otp, type }) {
