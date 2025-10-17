@@ -20,12 +20,12 @@ export const auth = betterAuth({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     },
-    apple: { 
-      clientId: process.env.APPLE_CLIENT_ID , 
-      clientSecret: process.env.APPLE_CLIENT_SECRET, 
-  }, 
+    apple: {
+      clientId: process.env.APPLE_CLIENT_ID,
+      clientSecret: process.env.APPLE_CLIENT_SECRET,
+    },
   },
-  trustedOrigins: ["http://localhost:3000"],
+  trustedOrigins: ["http://localhost:3000", process.env.FRONTEND_URL],
   plugins: [
     emailOTP({
       async sendVerificationOTP({ email, otp, type }) {
