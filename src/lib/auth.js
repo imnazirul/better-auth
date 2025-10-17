@@ -9,9 +9,13 @@ export const auth = betterAuth({
   }),
   advanced: {
     defaultCookieAttributes: {
-      sameSite: "Lax",
+      sameSite: "None",
       secure: true,
       httpOnly: true,
+    },
+    cookies: {
+      sameSite: "none", // Required for cross-domain
+      secure: true, // Required with SameSite=None
     },
   },
   emailAndPassword: {
