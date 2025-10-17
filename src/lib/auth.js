@@ -8,13 +8,9 @@ export const auth = betterAuth({
     provider: "pg", // or "mysql", "sqlite"
   }),
   advanced: {
-    cookies: {
-      state: {
-        attributes: {
-          sameSite: "none",
-          secure: true,
-        },
-      },
+    defaultCookieAttributes: {
+      sameSite: "none",
+      secure: true,
     },
   },
   emailAndPassword: {
